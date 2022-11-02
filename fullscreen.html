@@ -365,7 +365,7 @@ function updateWeather(){
       nearestpointdata.wind_speed.toFixed(1) + "<span class=\"omit-lv2\"> m/s</span>",
       (nearestpointdata.temp - 273.15).toFixed(1) + " ℃",
       //"<div class=\"weather_icon weather_icon_" + nearestpointdata.weather_icon + "\"></div>" + "<div class=\"weather_desc omit-lv2\">" + nearestpointdata.weather_desc + "</div>",
-      "<div class=\"weather_icon\" style=\"background-image:url('./icons/" + nearestpointdata.weather_icon + ".svg')\"></div>" + "<div class=\"weather_desc omit-lv2\">" + nearestpointdata.weather_desc + "</div>",
+      "<div class=\"weather_icon\" style=\"background-image:url('./50/" + nearestpointdata.weather_icon + ".png')\"></div>" + "<div class=\"weather_desc omit-lv2\">" + nearestpointdata.weather_desc + "</div>",
       nearestpointdata.rain.toFixed(1) + "<span class=\"omit-lv2\"> mm</span>"
     ]);
   }
