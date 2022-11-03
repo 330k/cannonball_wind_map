@@ -36,99 +36,16 @@ body{
  /*select { color: blue; font-weight: bold; }*/
  button {  }
 #wrap_weather { width: 100%; height: auto; overflow: auto; flex-grow: 0;}
-#weather { width: 100%; height: 100%; border-collapse: collapse; text-align: center; }
+#weather { width: 100%; height: auto; border-collapse: collapse; text-align: center; }
 #weather th { white-space: nowrap; }
 #weather td { border-style: solid; border-width: 0px 0px 0px 1px; border-color: gray; padding: 5px 0 5px 0; }
 .weather_desc { font-size: 35%; }
 
-#weather_vertical { width: 100%; height: 100%; border-collapse: collapse; display: none; font-size: 3vw; text-align: center; }
+#weather_vertical { width: 100%; height: auto; border-collapse: collapse; display: none; font-size: 3vw; text-align: center; }
 #weather_vertical th { border-style: solid; border-color: #888; border-width: 0 0 1px 0; padding: 2px 0 2px 0; }
 #weather_vertical td { border-top: 1px dotted #ccc; padding: 2px 0 2px 0; }
 
 .weather_icon { display: inline-block; width: 50px; height: 50px; background-repeat: no-repeat; background-position: center; background-size: contain; }
-.weather_icon_01d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/01d.svg"); }
-.weather_icon_01n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/01n.svg"); }
-.weather_icon_01m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/01m.svg"); }
-.weather_icon_02d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/02d.svg"); }
-.weather_icon_02n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/02n.svg"); }
-.weather_icon_02m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/02m.svg"); }
-.weather_icon_03d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/03d.svg"); }
-.weather_icon_03n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/03n.svg"); }
-.weather_icon_03m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/03m.svg"); }
-.weather_icon_04 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/04.svg"); }
-.weather_icon_05d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/05d.svg"); }
-.weather_icon_05n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/05n.svg"); }
-.weather_icon_05m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/05m.svg"); }
-.weather_icon_06d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/06d.svg"); }
-.weather_icon_06n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/06n.svg"); }
-.weather_icon_06m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/06m.svg"); }
-.weather_icon_07d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/07d.svg"); }
-.weather_icon_07n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/07n.svg"); }
-.weather_icon_07m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/07m.svg"); }
-.weather_icon_08d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/08d.svg"); }
-.weather_icon_08n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/08n.svg"); }
-.weather_icon_08m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/08m.svg"); }
-.weather_icon_09 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/09.svg"); }
-.weather_icon_10 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/10.svg"); }
-.weather_icon_11 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/11.svg"); }
-.weather_icon_12 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/12.svg"); }
-.weather_icon_13 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/13.svg"); }
-.weather_icon_14 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/14.svg"); }
-.weather_icon_15 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/15.svg"); }
-.weather_icon_20d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/20d.svg"); }
-.weather_icon_20n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/20n.svg"); }
-.weather_icon_20m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/20m.svg"); }
-.weather_icon_21d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/21d.svg"); }
-.weather_icon_21n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/21n.svg"); }
-.weather_icon_21m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/21m.svg"); }
-.weather_icon_22 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/22.svg"); }
-.weather_icon_23 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/23.svg"); }
-.weather_icon_24d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/24d.svg"); }
-.weather_icon_24n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/24n.svg"); }
-.weather_icon_24m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/24m.svg"); }
-.weather_icon_25d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/25d.svg"); }
-.weather_icon_25n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/25n.svg"); }
-.weather_icon_25m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/25m.svg"); }
-.weather_icon_26d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/26d.svg"); }
-.weather_icon_26n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/26n.svg"); }
-.weather_icon_26m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/26m.svg"); }
-.weather_icon_27d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/27d.svg"); }
-.weather_icon_27n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/27n.svg"); }
-.weather_icon_27m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/27m.svg"); }
-.weather_icon_28d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/28d.svg"); }
-.weather_icon_28n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/28n.svg"); }
-.weather_icon_28m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/28m.svg"); }
-.weather_icon_29d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/29d.svg"); }
-.weather_icon_29n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/29n.svg"); }
-.weather_icon_29m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/29m.svg"); }
-.weather_icon_30 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/30.svg"); }
-.weather_icon_31 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/31.svg"); }
-.weather_icon_32 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/32.svg"); }
-.weather_icon_33 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/33.svg"); }
-.weather_icon_34 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/34.svg"); }
-.weather_icon_40d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/40d.svg"); }
-.weather_icon_40n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/40n.svg"); }
-.weather_icon_40m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/40m.svg"); }
-.weather_icon_41d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/41d.svg"); }
-.weather_icon_41n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/41n.svg"); }
-.weather_icon_41m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/41m.svg"); }
-.weather_icon_42d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/42d.svg"); }
-.weather_icon_42n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/42n.svg"); }
-.weather_icon_42m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/42m.svg"); }
-.weather_icon_43d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/43d.svg"); }
-.weather_icon_43n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/43n.svg"); }
-.weather_icon_43m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/43m.svg"); }
-.weather_icon_44d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/44d.svg"); }
-.weather_icon_44n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/44n.svg"); }
-.weather_icon_44m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/44m.svg"); }
-.weather_icon_45d { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/45d.svg"); }
-.weather_icon_45n { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/45n.svg"); }
-.weather_icon_45m { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/45m.svg"); }
-.weather_icon_46 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/46.svg"); }
-.weather_icon_47 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/47.svg"); }
-.weather_icon_48 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/48.svg"); }
-.weather_icon_49 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/49.svg"); }
-.weather_icon_50 { background-image: url("https://www.330k.info/software/cannonball-wind-map/icons/50.svg"); }
 
 @media screen and (max-width: 960px){
   #menu, #menu select, #menu button { font-size: 1.5vw; }
@@ -140,7 +57,7 @@ body{
 @media screen and (max-width: 640px){
   #menu, #menu select, #menu button { font-size: 3vw; }
   #weather { display:none; }
-  #weather_vertical { width: 100%; height: auto; border-collapse: collapse; display: table; }
+  #weather_vertical { display: table; }
   .weather_icon { max-width: 5vw; max-height: 5vw; }
   .omit-lv2 { display: none; }
 }
