@@ -118,28 +118,36 @@ document.querySelectorAll("select,button").forEach((e) => e.disabled = true);
 function getWeatherData(){
   const promises = [];
   
+  const now = new Date();
+  const start_date = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - 2);
+  const end_date = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 8);
+  const start_date_str = start_date.getFullYear() + "-" + ("0" + (start_date.getMonth() + 1)).slice(-2) + "-" + ("0" + start_date.getDate()).slice(-2);
+  const end_date_str = end_date.getFullYear() + "-" + ("0" + (end_date.getMonth() + 1)).slice(-2) + "-" + ("0" + end_date.getDate()).slice(-2);
+  
   for(const p of pointlist){
     promises.push(new Promise((resolve, reject) => {
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.lat}&longitude=${p.lon}&hourly=temperature_2m,precipitation,rain,showers,snowfall,weathercode,windspeed_10m,winddirection_10m&windspeed_unit=ms&past_days=2&timezone=Asia%2FTokyo`).then((response) => {
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.lat}&longitude=${p.lon}&hourly=temperature_2m,precipitation,rain,showers,snowfall,weathercode,windspeed_10m,winddirection_10m&windspeed_unit=ms&start_date=${start_date_str}&end_date=${end_date_str}`).then((response) => {
         return response.json();
       }).then((json) => {
         console.log(json);
         
         for(let j = 0; j < json.hourly.time.length; j++){
-          forecast_data.push({
-            name: p.name,
-            lat: p.lat,
-            lon: p.lon,
-            dist: p.lon,
-            datetime: (new Date(json.hourly.time[j])).toISOString(),
-            temp: json.hourly.temperature_2m[j] + 273.15,
-            wind_speed: json.hourly.windspeed_10m[j],
-            wind_deg: json.hourly.winddirection_10m[j],
-            weather_id: json.hourly.weathercode[j],
-            weather_icon: WWCodeToICON(json.hourly.weathercode[j]),
-            weather_desc: WWCodeToString(json.hourly.weathercode[j]),
-            rain: json.hourly.precipitation[j]
-          });
+          if(json.hourly.temperature_2m[j] !== null){
+            forecast_data.push({
+              name: p.name,
+              lat: p.lat,
+              lon: p.lon,
+              dist: p.lon,
+              datetime: (new Date((new Date(json.hourly.time[j])).getTime() + 9 * 3600 * 1000)).toISOString(),
+              temp: json.hourly.temperature_2m[j] + 273.15,
+              wind_speed: json.hourly.windspeed_10m[j],
+              wind_deg: json.hourly.winddirection_10m[j],
+              weather_id: json.hourly.weathercode[j],
+              weather_icon: WWCodeToICON(json.hourly.weathercode[j]),
+              weather_desc: WWCodeToString(json.hourly.weathercode[j]),
+              rain: json.hourly.precipitation[j]
+            });
+          }
         }
       }).then(() => {
         resolve();
