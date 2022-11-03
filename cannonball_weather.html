@@ -199,7 +199,7 @@ Promise.all([...getWeatherData(), new Promise((resolve) => {mapresolve = resolve
     const laststartdatetime = new Date(Date.parse(datetimelist[datetimelist.length - 1]) - duration * 3600 * 1000);
     
     for(let d = new Date(datetimelist[0]); d.getTime() <= laststartdatetime.getTime(); d.setHours(d.getHours() + 1)){
-      const text = (d.getFullYear()) + "/" + (d.getMonth() + 1) + "/" + (d.getDate()) + "(" + (["日", "月", "火", "水", "木", "金", "土"][d.getDay()]) + ") " + (d.getHours()) + ":00";
+      const text = (d.getFullYear()) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + ("0" + d.getDate()).slice(-2) + "(" + (["日", "月", "火", "水", "木", "金", "土"][d.getDay()]) + ") " + ("0" + d.getHours()).slice(-2) + ":00";
       buf.push("<option value=\"" + d.toISOString() +"\">" + text + "</option>");
     }
     ele_starttime.innerHTML = buf.join("");
@@ -373,7 +373,7 @@ function updateWeather(){
     let direction = ["北", "北北東", "北東", "東北東", "東", "東南東", "南東", "南南東", "南", "南南西", "南西", "西南西", "西", "西北西", "北西", "北北西"];
     weathertable.push([
       nearestpointdata.name,
-      (d.getMonth() + 1) + "/" + d.getDate() + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2),
+      ("0" + (d.getMonth() + 1)).slice(-2) + "/" + ("0" + d.getDate()).slice(-2) + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2),
       "<span class=\"omit-lv2\">" + nearestpointdata.wind_deg + "</span> " + direction[Math.floor(((nearestpointdata.wind_deg + 11.25) % 360) / 22.5)],
       nearestpointdata.wind_speed.toFixed(1) + "<span class=\"omit-lv2\"> m/s</span>",
       (nearestpointdata.temp - 273.15).toFixed(1) + " ℃",
