@@ -1,27 +1,18 @@
 <html>
 <head>
 <title>キャノンボール専用 天候・風向き予測</title>
-<meta property="og:title" content="キャノンボール専用 天候・風向き予測" />
-<meta property="og:description" content="東京-大阪キャノンボール専用の天候や風向き予報を表示するツールです。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.330k.info/software/cannonball-wind-map/fullscreen.html" />
-<meta property="og:image" content="https://www.330k.info/software/cannonball-wind-map/cannonball_logo.png"/>
+<meta property="og:title" content="キャノンボール専用 天候・風向き予測" >
+<meta property="og:description" content="東京-大阪キャノンボール専用の天候や風向き予報を表示するツールです。" >
+<meta property="og:type" content="article" >
+<meta property="og:url" content="https://www.330k.info/software/cannonball-wind-map/fullscreen.html" >
+<meta property="og:image" content="https://www.330k.info/software/cannonball-wind-map/cannonball_logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="application-name" content="キャノボ予報">
+<meta name="application-name" content="キャノボ天気予報">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="favicon" href="https://www.330k.info/software/cannonball-wind-map/cannonball_ogimage.png">
 <link rel="apple-touch-icon" sizes="240x240" href="https://www.330k.info/software/cannonball-wind-map/cannonball_ogimage.png">
   <style>
-table {
-    text-indent: initial;
-    white-space: normal;
-    line-height: normal;
-    font-weight: normal;
-    font-style: normal;
-    border-spacing: 2px;
-    font-variant: normal;
-}
 html, body { width: 100%; height: 100%; margin: 0; padding: 0 ; overflow: hidden; font-size: 16px; background: white;}
 body{
   display: flex;
@@ -79,7 +70,7 @@ body{
   </style>
   <body>
     <div id="map"></div>
-    <div id="fullscreen"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAnklEQVRYR+2WWw6AIAwE5bIcisvql4kxNZu1IoSMv6UwTtdH2Sa/yuR8G4DZCWEQg1kD2X4yiMGrgVrrHhlprYVRcddHe1sZdA90138G+GRM5e0EdvpfGXQOiCLi9AP4q0GVsR51a8Q9ANSeACpDqo5BZUjVLYNvvgS/vmYADOa95ojvN8r/oHrUR9atDI4ABTBrHYMYzBrI9pPB5Q0eYPNgKS/1JLgAAAAASUVORK5CYII=" width="40" height="40"/></div>
+    <div id="fullscreen"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAnklEQVRYR+2WWw6AIAwE5bIcisvql4kxNZu1IoSMv6UwTtdH2Sa/yuR8G4DZCWEQg1kD2X4yiMGrgVrrHhlprYVRcddHe1sZdA90138G+GRM5e0EdvpfGXQOiCLi9AP4q0GVsR51a8Q9ANSeACpDqo5BZUjVLYNvvgS/vmYADOa95ojvN8r/oHrUR9atDI4ABTBrHYMYzBrI9pPB5Q0eYPNgKS/1JLgAAAAASUVORK5CYII=" width="40" height="40"></div>
     <div id="menu">
       <span class="omit-lv2">方向: </span><select id="direction"><option value="1" selected>大阪→東京</option><option value="2">東京→大阪</option></select>
       <span class="omit-lv2">目標時間: </span><select id="duration"></select>
@@ -94,7 +85,7 @@ body{
     
     <div id="loader_bg">
       <div id="loader">
-        <img src="data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-spin'%3E%3Cpath fill='none' class='bk' d='M0 0h100v100H0z'/%3E%3Cg transform='translate(84 50)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(45 -52.355 126.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.12s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.12s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(90 -17 67)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.25s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.25s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(135 -2.355 42.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.37s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.37s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(180 8 25)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.5s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.5s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-135 18.355 7.603)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.62s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.62s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-90 33 -17)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.75s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.75s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-45 68.355 -76.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.87s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.87s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E" width="128" height="128"/>
+        <img src="data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='uil-spin'%3E%3Cpath fill='none' class='bk' d='M0 0h100v100H0z'/%3E%3Cg transform='translate(84 50)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(45 -52.355 126.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.12s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.12s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(90 -17 67)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.25s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.25s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(135 -2.355 42.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.37s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.37s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(180 8 25)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.5s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.5s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-135 18.355 7.603)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.62s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.62s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-90 33 -17)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.75s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.75s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3Cg transform='rotate(-45 68.355 -76.397)'%3E%3Ccircle r='8'%3E%3Canimate attributeName='opacity' from='1' to='.1' begin='0.87s' dur='1s' repeatCount='indefinite'/%3E%3CanimateTransform attributeName='transform' type='scale' from='1.5' to='1' begin='0.87s' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E" width="128" height="128">
       </div>
     </div>
 <script>
