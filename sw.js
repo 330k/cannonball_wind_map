@@ -1,7 +1,7 @@
 "use strict";
 const CACHE_NAME = "cannonball-weather-cache";
 const urlsToCache = [
-  "＜キャッシュするファイルパス1＞",
+  "icons/01d.svg",
 ];
 //installイベントの場合
 //前述のファイルパスをすべてキャッシュに登録する
