@@ -7,7 +7,7 @@
           "src": "images/icon_192x192.png",
           "sizes": "192x192",
           "type": "image/png"
-      },
+      }
   ],
   "display": "standalone",
   "start_url": "/cannonball_wind_map/cannonball_weather.html"
