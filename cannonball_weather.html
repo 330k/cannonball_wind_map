@@ -136,8 +136,8 @@ function getWeatherData(){
           if(json.hourly.temperature_2m[j] !== null){
             forecast_data.push({
               name: p.name,
-              lat: p.lat,
-              lon: p.lon,
+              lat: json.latitude,//p.lat,
+              lon: json.longitude,//p.lon,
               dist: p.lon,
               datetime: (new Date((new Date(json.hourly.time[j])).getTime() + 9 * 3600 * 1000)).toISOString(),
               temp: json.hourly.temperature_2m[j] + 273.15,
