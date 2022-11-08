@@ -1,5 +1,5 @@
 "use strict";
-const CACHE_NAME = "cannonball-weather-cache";
+const CACHE_NAME = "cannonball-wind-map";
 const urlsToCache = [
   "icons/01d.svg",
 ];
