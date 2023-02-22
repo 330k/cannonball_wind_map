@@ -158,6 +158,31 @@ function getWeatherData(){
   
   return promises;
 }
+async function loadWeatherData(){
+  const response = await fetch("weather-data.json");
+  const json = await response.json();
+  
+  for(const point of json){
+    for(let j = 0; j < point.hourly.time.length; j++){
+      if(point.hourly.temperature_2m[j] !== null){
+        forecast_data.push({
+          name: point.name,
+          lat: point.latitude,//p.lat,
+          lon: point.longitude,//p.lon,
+          dist: point.dist,
+          datetime: (new Date((new Date(point.hourly.time[j])).getTime() + 9 * 3600 * 1000)).toISOString(),
+          temp: point.hourly.temperature_2m[j] + 273.15,
+          wind_speed: point.hourly.windspeed_10m[j],
+          wind_deg: point.hourly.winddirection_10m[j],
+          weather_id: point.hourly.weathercode[j],
+          weather_icon: WWCodeToICON(point.hourly.weathercode[j]),
+          weather_desc: WWCodeToString(point.hourly.weathercode[j]),
+          rain: point.hourly.precipitation[j]
+        });
+      }
+    }
+  }
+}
 
 let mapresolve;
 function initMap() {
@@ -165,16 +190,10 @@ function initMap() {
 }
 
 // 気象データとGoogle Mapsの読み込みが完了したら初期化処理実施
-Promise.all([/*...getWeatherData()*/
-  new Promise((resolve) => {
-    fetch("https://storage.googleapis.com/330k-cannonball-weather/weather-data.json").then((response) => {
-      return response.json();
-    }).then((json) => {
-      forecast_data = json;
-      resolve();
-    });
-  })
-, new Promise((resolve) => {mapresolve = resolve;})]).then((results) => {
+Promise.all([
+  loadWeatherData()
+  , new Promise((resolve) => {mapresolve = resolve;})
+]).then((results) => {
   // Google Maps初期化
   map = new google.maps.Map(document.getElementById("map"), {
     fullscreenControl: false
@@ -368,7 +387,7 @@ function updateWeather(){
         //path: "M -2,-9 2,-9 0,10 z",
         //path: "M 0.2,-10 0.2,7 2,3 0,10 -2,3 -0.2,7 -0.2,-10",
         path: "M 0,-3 3,-10 0,10 -3,-10 z",
-        strokeColor: "#800",
+        strokeColor: "#F00",
         strokeWeight: 0.5,
         fillColor: "#F00",
         fillOpacity: 1,
