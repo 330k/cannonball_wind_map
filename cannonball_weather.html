@@ -11,6 +11,7 @@
 <meta name="application-name" content="キャノボ天気予報">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="東京-大阪キャノンボール専用の天候や風向き予報を表示するツールです。" >
 <link rel="manifest" href="manifest.json">
 <link rel="favicon" type="image/png"  href="https://www.330k.info/software/cannonball-wind-map/cannonball_logo.png">
 <link rel="apple-touch-icon" sizes="240x240" href="https://www.330k.info/software/cannonball-wind-map/cannonball_ogimage.png">
@@ -72,7 +73,7 @@ body{
   </style>
   <body>
     <div id="map"></div>
-    <div id="fullscreen"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAnklEQVRYR+2WWw6AIAwE5bIcisvql4kxNZu1IoSMv6UwTtdH2Sa/yuR8G4DZCWEQg1kD2X4yiMGrgVrrHhlprYVRcddHe1sZdA90138G+GRM5e0EdvpfGXQOiCLi9AP4q0GVsR51a8Q9ANSeACpDqo5BZUjVLYNvvgS/vmYADOa95ojvN8r/oHrUR9atDI4ABTBrHYMYzBrI9pPB5Q0eYPNgKS/1JLgAAAAASUVORK5CYII=" width="40" height="40"></div>
+    <div id="fullscreen"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAnklEQVRYR+2WWw6AIAwE5bIcisvql4kxNZu1IoSMv6UwTtdH2Sa/yuR8G4DZCWEQg1kD2X4yiMGrgVrrHhlprYVRcddHe1sZdA90138G+GRM5e0EdvpfGXQOiCLi9AP4q0GVsR51a8Q9ANSeACpDqo5BZUjVLYNvvgS/vmYADOa95ojvN8r/oHrUR9atDI4ABTBrHYMYzBrI9pPB5Q0eYPNgKS/1JLgAAAAASUVORK5CYII=" width="40" height="40" alt="Full Screen"></div>
     <div id="menu">
       <span class="omit-lv2">方向: </span><select id="direction"><option value="1" selected>大阪→東京</option><option value="2">東京→大阪</option></select>
       <span class="omit-lv2">目標時間: </span><select id="duration"></select>
