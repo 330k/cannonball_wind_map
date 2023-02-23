@@ -29,7 +29,9 @@ for i in $POINTS; do
   DIST=$(echo $i | cut -d',' -f4)
 
   URL="https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&hourly=temperature_2m,precipitation,rain,showers,snowfall,weathercode,windspeed_10m,winddirection_10m&windspeed_unit=ms&start_date=${STARTDATE}&end_date=${ENDDATE}"
-  wget "${URL}" --no-check-certificate --timeout 10 -t 30 -nv -O ${WORKDIR}/${NAME}_weather.json
+  while true; do
+    wget "${URL}" --no-check-certificate --timeout 10 -t 30 -nv -O ${WORKDIR}/${NAME}_weather.json && break
+  done
   echo '{"name":"'${NAME}'","dist":'${DIST}'}' > ${WORKDIR}/${NAME}_add.json
   jq -s add ${WORKDIR}/${NAME}_weather.json ${WORKDIR}/${NAME}_add.json > ${WORKDIR}/${NAME}_join.json
 
