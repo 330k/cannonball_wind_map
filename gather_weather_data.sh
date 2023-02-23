@@ -28,7 +28,7 @@ for i in $POINTS; do
   LON=$(echo $i | cut -d',' -f3)
   DIST=$(echo $i | cut -d',' -f4)
 
-  wget "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&hourly=temperature_2m,precipitation,rain,showers,snowfall,weathercode,windspeed_10m,winddirection_10m&windspeed_unit=ms&start_date=${STARTDATE}&end_date=${ENDDATE}" -nv -O ${WORKDIR}/${NAME}_weather.json
+  wget "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&hourly=temperature_2m,precipitation,rain,showers,snowfall,weathercode,windspeed_10m,winddirection_10m&windspeed_unit=ms&start_date=${STARTDATE}&end_date=${ENDDATE}" --timeout 10 -t 30 -nv -O ${WORKDIR}/${NAME}_weather.json
   echo '{"name":"'${NAME}'","dist":'${DIST}'}' > ${WORKDIR}/${NAME}_add.json
   jq -s add ${WORKDIR}/${NAME}_weather.json ${WORKDIR}/${NAME}_add.json > ${WORKDIR}/${NAME}_join.json
 
