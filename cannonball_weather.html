@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>キャノンボール専用 天候・風向き予測</title>
@@ -115,7 +116,7 @@ const ele_starttime = document.getElementById("starttime");
 // 初期化完了するまですべてのフォーム要素を無効化
 document.querySelectorAll("select,button").forEach((e) => e.disabled = true);
 
-// 気象データを取得
+// 気象データを取得(Open-MeteoのAPIを直接呼び出す)
 function getWeatherData(){
   const promises = [];
   
@@ -158,6 +159,8 @@ function getWeatherData(){
   
   return promises;
 }
+
+// 気象データを取得(GitHub Actionsで収集したデータを取得)
 async function loadWeatherData(){
   const response = await fetch("weather-data.json");
   const json = await response.json();
