@@ -36,7 +36,7 @@ for i in $POINTS; do
   done
   echo '{"name":"'${NAME}'","dist":'${DIST}'}' > ${WORKDIR}/${NAME}_add.json
   jq -s add ${WORKDIR}/${NAME}_weather.json ${WORKDIR}/${NAME}_add.json > ${WORKDIR}/${NAME}_join.json
-
+  sleep 3
 done
 
 jq -s '.' -c ${WORKDIR}/*_join.json | jq -s 'add' -c > weather-data.json
