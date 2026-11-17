@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
       - name: Gather Weather Data
         run: |
           date
@@ -52,9 +52,9 @@ jobs:
           ls -al
           if [[ $(cat weather-data.json | jq '[.[] | select(.latitude != null)] | length') != "10" ]]; then exit 1; fi
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v7
         with:
           # Upload entire repository
           path: '.'
